@@ -80,10 +80,12 @@ public class MainActivity extends AppCompatActivity
         switch( item.getItemId() )
         {
             case R.id.menu_item_settings:
-                navController.navigate(R.id.action_toSettings);
+                if( navController.getCurrentDestination().getId() != R.id.settingsFragment )
+                    navController.navigate(R.id.action_toSettings);
                 break;
             case R.id.menu_item_about:
-                navController.navigate(R.id.action_toAbout);
+                if( navController.getCurrentDestination().getId() != R.id.aboutFragment )
+                    navController.navigate(R.id.action_toAbout);
                 break;
         }
 
