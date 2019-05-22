@@ -3,10 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <item
-        android:id="@+id/drawer_item_settings"
-        android:title="Settings" />
-    <item
-        android:id="@+id/drawer_item_about"
-        android:title="About" />
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/drawer_item_main"
+            android:checked="true"
+            android:title="Main" />
+        <item
+            android:id="@+id/drawer_item_settings"
+            android:title="Settings" />
+        <item
+            android:id="@+id/drawer_item_about"
+            android:title="About" />
+    </group>
 </menu>

@@ -26,6 +26,10 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@+id/mainFragment" />
+        <argument
+            android:name="title"
+            app:argType="string"
+            android:defaultValue="Main" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -33,14 +37,6 @@
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" >
         <action
-            android:id="@+id/action_toSettings"
-            app:destination="@id/settingsFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            app:popUpTo="@+id/mainFragment" />
-        <action
             android:id="@+id/action_toAbout"
             app:destination="@id/aboutFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
@@ -48,6 +44,10 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@+id/mainFragment" />
+        <argument
+            android:name="title"
+            app:argType="string"
+            android:defaultValue="Settings" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -55,14 +55,6 @@
         android:label="fragment_about"
         tools:layout="@layout/fragment_about" >
         <action
-            android:id="@+id/action_toAbout"
-            app:destination="@id/aboutFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            app:popUpTo="@+id/mainFragment" />
-        <action
             android:id="@+id/action_toSettings"
             app:destination="@id/settingsFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
@@ -70,5 +62,9 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@+id/mainFragment" />
+        <argument
+            android:name="title"
+            app:argType="string"
+            android:defaultValue="About" />
     </fragment>
 </navigation>

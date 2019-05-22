@@ -22,7 +22,11 @@ public class MainActivity extends AppCompatActivity
 {
 
     DrawerLayout drawer;
+
+    NavigationView navView;
     NavController navController;
+
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -32,11 +36,11 @@ public class MainActivity extends AppCompatActivity
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_layout);
-        NavigationView navView = findViewById(R.id.nav_view);
+        navView = findViewById(R.id.nav_view);
 
         //create hamburger menu!
         ActionBarDrawerToggle hamburgerMenu = new ActionBarDrawerToggle(
@@ -89,14 +93,23 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item)
     {
-        switch( item.getItemId() )
+        //if we selected the page we are already on, skip this!
+        if( ! item.isChecked() )
         {
-            case R.id.drawer_item_settings:
-                navController.navigate(R.id.action_toSettings);
-                break;
-            case R.id.drawer_item_about:
-                navController.navigate(R.id.action_toAbout);
-                break;
+            switch (item.getItemId())
+            {
+                case R.id.drawer_item_main:
+                    //solange poppen, bis wir im mainFragment sind.
+                    //dieses aber NICHT poppen!
+                    navController.popBackStack(R.id.mainFragment, false);
+                    break;
+                case R.id.drawer_item_settings:
+                    navController.navigate(R.id.action_toSettings);
+                    break;
+                case R.id.drawer_item_about:
+                    navController.navigate(R.id.action_toAbout);
+                    break;
+            }
         }
 
         drawer.closeDrawer(GravityCompat.START);
